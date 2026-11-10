@@ -90,6 +90,46 @@
   document.addEventListener('click', function (e) { if (moved) { e.preventDefault(); e.stopPropagation(); moved = false; } }, true);
   document.addEventListener('dragstart', function (e) { if (mq.matches && e.target.closest && e.target.closest(CAROUSEL)) e.preventDefault(); }, true);
 
+  /* ---- 4) photos sit fully inside their frame (frame shape stays, nothing is cut off) ---- */
+  function watchFit(el) {
+    if (el.__ubFit || el.closest('header,footer')) return;
+    el.__ubFit = 1;
+    if (el.__ubFitOrig === undefined) el.__ubFitOrig = el.getAttribute('fit');
+    if (el.getAttribute('fit') !== 'contain') el.setAttribute('fit', 'contain');
+  }
+  function fitScan(n) {
+    if (!mq.matches || n.nodeType !== 1) return;
+    if (n.tagName === 'IMAGE-SLOT') watchFit(n);
+    if (n.querySelectorAll) n.querySelectorAll('main image-slot').forEach(watchFit);
+  }
+  function unfit() {
+    document.querySelectorAll('image-slot').forEach(function (el) {
+      if (!el.__ubFit) return; el.__ubFit = 0;
+      if (el.__ubFitOrig) el.setAttribute('fit', el.__ubFitOrig); else el.removeAttribute('fit');
+    });
+  }
+  /* ---- 5) header: hides while scrolling down, slides back in when scrolling up ---- */
+  var lastY = 0, ticking = false;
+  function hdr() {
+    ticking = false;
+    var h = document.querySelector('header');
+    if (!h) return;
+    if (!mq.matches) { root.classList.remove('ub-hdr-fixed', 'ub-hdr-show'); return; }
+    var hh = h.offsetHeight || 60, ph = h.parentElement;
+    if (ph && ph.tagName !== 'BODY' && ph.style.minHeight !== hh + 'px') ph.style.minHeight = hh + 'px';
+    var y = window.scrollY, dy = y - lastY;
+    var menuOpen = !!h.querySelector('[style*="position: fixed"][style*="inset: 0"]');
+    if (y <= hh) { root.classList.remove('ub-hdr-fixed', 'ub-hdr-show'); }
+    else if (menuOpen) { /* keep it as it is */ }
+    else if (dy < -4) {
+      if (!root.classList.contains('ub-hdr-fixed')) { root.classList.add('ub-hdr-fixed'); requestAnimationFrame(function () { requestAnimationFrame(function () { root.classList.add('ub-hdr-show'); }); }); }
+      else root.classList.add('ub-hdr-show');
+    }
+    else if (dy > 4) { root.classList.add('ub-hdr-fixed'); root.classList.remove('ub-hdr-show'); }
+    if (Math.abs(dy) > 4 || y <= hh) lastY = y;
+  }
+  window.addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(hdr); } }, { passive: true });
+
   function start() {
     if (started || !mq.matches) return;
     started = true;
@@ -99,17 +139,22 @@
       for (var i = 0; i < ms.length; i++) {
         var m = ms[i];
         if (m.type === 'attributes') fixEl(m.target);
-        else for (var j = 0; j < m.addedNodes.length; j++) scan(m.addedNodes[j]);
+        else for (var j = 0; j < m.addedNodes.length; j++) { scan(m.addedNodes[j]); fitScan(m.addedNodes[j]); }
       }
     }).observe(root, { childList: true, subtree: true, attributes: true, attributeFilter: ['src', 'style', 'href'] });
-    if (document.body) scan(document.body);
-    document.addEventListener('DOMContentLoaded', function () { scan(document.body); });
+    if (document.body) { scan(document.body); fitScan(document.body); }
+    document.addEventListener('DOMContentLoaded', function () { scan(document.body); fitScan(document.body); });
+    /* image-slot builds its inner image a moment after it is inserted */
+    setTimeout(function () { fitScan(document.body); }, 600);
+    setTimeout(function () { fitScan(document.body); }, 2000);
   }
   start();
   /* window resized into phone width after loading (e.g. browser dev tools) */
   var onChange = function () {
     root.classList.toggle('ub-m', mq.matches);
-    if (mq.matches) { start(); if (document.body) scan(document.body); }
+    if (mq.matches) { start(); if (document.body) { scan(document.body); fitScan(document.body); } }
+    else unfit();
+    hdr();
   };
   if (mq.addEventListener) mq.addEventListener('change', onChange); else mq.addListener(onChange);
 })();

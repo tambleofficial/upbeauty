@@ -52,6 +52,9 @@ main section div[style*="overflow-x: auto"] > *{scroll-snap-align:start;min-widt
 @media (pointer:fine){main section div[style*="overflow-x: auto"],main [data-m="tri"]{cursor:grab}}
 
 /* ---------- 4. Header / floating bar / footer ---------- */
+/* header comes back when scrolling up (classes set by ub-mobile.js) */
+html.ub-hdr-fixed header{position:fixed!important;top:0!important;left:0;right:0;transform:translateY(-110%);transition:transform .3s cubic-bezier(.2,.7,.2,1);box-shadow:0 6px 18px rgba(37,34,32,.07)}
+html.ub-hdr-fixed.ub-hdr-show header{transform:none}
 header > div{padding:10px 16px!important}
 header img[alt="UP BEAUTY 업뷰티"]{height:28px!important}
 header button[aria-label="메뉴"]{width:40px!important;height:40px!important}
@@ -142,7 +145,7 @@ main [data-m="tri"] figcaption span:last-child{font-size:11px!important;letter-s
 
 /* Lip color */
 [data-screen-label="06 Lip Color Map"] div[style*="flex-wrap: wrap; gap: clamp(24px, 3vw, 40px)"]{gap:18px!important}
-[data-screen-label="06 Lip Color Map"] div[style*="flex: 0 0 38%"]{flex:1 1 100%!important;min-width:0!important;aspect-ratio:4/3!important;border-radius:14px}
+[data-screen-label="06 Lip Color Map"] div[style*="flex: 0 0 38%"]{flex:1 1 100%!important;min-width:0!important;border-radius:14px}
 [data-screen-label="06 Lip Color Map"] div[style*="flex: 1 1 420px"]{flex:1 1 100%!important}
 [data-screen-label="06 Lip Color Map"] div[style*="repeat(3, 1fr); grid-template-rows"] > span{width:46px!important}
 [data-screen-label="06 Lip Color Map"] div[style*="font-size: 14.5px"]{font-size:11.5px!important}
@@ -157,7 +160,10 @@ main [data-m="tri"] figcaption span:last-child{font-size:11px!important;letter-s
 main section div[style*="flex-wrap: wrap; gap: 8px; margin: 0px 0px 32px"]{flex-wrap:nowrap!important;overflow-x:auto;margin:0 -20px 18px!important;padding:0 20px;scrollbar-width:none;gap:6px!important}
 main section div[style*="flex-wrap: wrap; gap: 8px; margin: 0px 0px 32px"]::-webkit-scrollbar{display:none}
 main section div[style*="flex-wrap: wrap; gap: 8px; margin: 0px 0px 32px"] > button{flex:none;height:36px!important;padding:0 14px!important;font-size:11.5px!important}
-main section div[style*="repeat(3, minmax(0px, 1fr)); gap: clamp(8px, 1.6vw, 20px)"]{gap:6px!important}
+main section div[style*="repeat(3, minmax(0px, 1fr)); gap: clamp(8px, 1.6vw, 20px)"]{grid-template-columns:1fr 1fr!important;gap:14px 8px!important;align-items:start}
+/* photo grids: photos keep their own height, so line them up at the top */
+[data-screen-label="04 Signature Program"] div[style*="minmax(min(100%, 280px), 1fr)"],[data-screen-label="10 Space & Hygiene"] div[style*="minmax(min(100%, 280px), 1fr)"],main section div[style*="minmax(min(100%, 220px), 1fr)"],main [data-m="tri"]{align-items:start!important}
+main div[style*="position: fixed"][style*="z-index: 200"] video{object-fit:contain!important}
 main section div[style*="repeat(3, minmax(0px, 1fr)); gap: clamp(8px, 1.6vw, 20px)"] > figure{gap:6px!important}
 main section div[style*="repeat(3, minmax(0px, 1fr)); gap: clamp(8px, 1.6vw, 20px)"] > figure > div:first-child{border-radius:8px}
 main section div[style*="repeat(3, minmax(0px, 1fr)); gap: clamp(8px, 1.6vw, 20px)"] button[aria-label="크게 보기"]{width:28px!important;height:28px!important;right:6px!important;bottom:6px!important;font-size:15px!important}
@@ -177,7 +183,7 @@ main section button[aria-label="이전"],main section button[aria-label="다음"
 /* Director */
 [data-screen-label="09 Director"] > div{gap:28px!important}
 [data-screen-label="09 Director"] > div > div:first-child{flex:1 1 100%!important;min-width:0!important}
-[data-screen-label="09 Director"] > div > div:first-child > div:first-child{aspect-ratio:1/1!important;border-radius:14px}
+[data-screen-label="09 Director"] > div > div:first-child > div:first-child{border-radius:14px}
 [data-screen-label="09 Director"] > div > div:last-child{min-width:0!important}
 main section div[style*="grid-template-columns: 110px minmax(0px, 1fr)"]{grid-template-columns:1fr!important;gap:14px!important;padding:22px 0!important}
 main section div[style*="grid-template-columns: 30px minmax(0px, 1fr)"]{grid-template-columns:24px 1fr!important;gap:10px!important;padding:16px 0!important}
@@ -259,7 +265,7 @@ main section figure figcaption[style*="position: absolute; left: 12px; bottom: 1
 [data-screen-label="02 Program Detail"] div[style*="flex-wrap: wrap; gap: 6px; margin-bottom: 32px"] > button span[style*="font-size: 12.5px"]{font-size:10px!important;letter-spacing:.1em!important}
 [data-screen-label="02 Program Detail"] div[style*="flex-wrap: wrap; gap: 6px; margin-bottom: 32px"] > button span[style*="font-size: 15px"]{font-size:13.5px!important}
 [data-screen-label="02 Program Detail"] div[style*="flex: 1 1 420px; max-width: 600px"]{flex:1 1 100%!important}
-[data-screen-label="02 Program Detail"] div[style*="flex: 1 1 420px; max-width: 600px"] > div{aspect-ratio:4/3!important;border-radius:14px}
+[data-screen-label="02 Program Detail"] div[style*="flex: 1 1 420px; max-width: 600px"] > div{border-radius:14px}
 [data-screen-label="02 Program Detail"] div[style*="flex-wrap: wrap; gap: clamp(32px, 4vw, 64px)"]{gap:20px!important}
 [data-screen-label="02 Program Detail"] div[style*="flex: 1 1 440px"]{flex:1 1 100%!important}
 [data-screen-label="02 Program Detail"] span[style*="padding: 8px 16px; border-radius: 999px"]{padding:6px 12px!important;font-size:13px!important}
@@ -281,7 +287,7 @@ main section div[style*="minmax(min(100%, 300px), 1fr)"]{gap:10px!important}
 /* Contact: location */
 [data-screen-label="04 Location"] > div{gap:28px!important}
 [data-screen-label="04 Location"] > div > div{flex:1 1 100%!important}
-[data-screen-label="04 Location"] img{aspect-ratio:4/3!important;border-radius:12px}
+[data-screen-label="04 Location"] img{object-fit:contain!important;border-radius:12px}
 [data-screen-label="04 Location"] div[style*="margin-top: -16px"]{margin-top:0!important}
 
 /* Cases: stories / instagram */
@@ -307,4 +313,9 @@ main > section[data-screen-label$="Contact"] a[data-magnetic],main > section[dat
 main > section[data-screen-label$="CTA"] > div{gap:20px!important}
 main > section[data-screen-label$="Contact"] div[style*="justify-content: center; gap: 12px"],main > section[data-screen-label$="CTA"] div[style*="justify-content: center; gap: 12px"]{width:100%;gap:8px!important}
 
+
+/* ---------- photos fit fully inside their frame (no cropping) ---------- */
+main img[style*="object-fit: cover"],main img[style*="object-fit:cover"],main video[style*="object-fit: cover"],main video[style*="object-fit:cover"]{object-fit:contain!important}
+main article span[style*="width: 34px"] img{object-fit:cover!important}
+main div[style*="aspect-ratio"]:has(> img[style*="object-fit"]),main div[style*="aspect-ratio"]:has(> video),main figure:has(> img[style*="object-fit"]){background-color:#F3E9E4}
 }
