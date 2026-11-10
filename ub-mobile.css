@@ -287,7 +287,7 @@ main section div[style*="minmax(min(100%, 300px), 1fr)"]{gap:10px!important}
 /* Contact: location */
 [data-screen-label="04 Location"] > div{gap:28px!important}
 [data-screen-label="04 Location"] > div > div{flex:1 1 100%!important}
-[data-screen-label="04 Location"] img{object-fit:contain!important;border-radius:12px}
+[data-screen-label="04 Location"] img{border-radius:12px}
 [data-screen-label="04 Location"] div[style*="margin-top: -16px"]{margin-top:0!important}
 
 /* Cases: stories / instagram */
@@ -313,9 +313,22 @@ main > section[data-screen-label$="Contact"] a[data-magnetic],main > section[dat
 main > section[data-screen-label$="CTA"] > div{gap:20px!important}
 main > section[data-screen-label$="Contact"] div[style*="justify-content: center; gap: 12px"],main > section[data-screen-label$="CTA"] div[style*="justify-content: center; gap: 12px"]{width:100%;gap:8px!important}
 
-
-/* ---------- photos fit fully inside their frame (no cropping) ---------- */
-main img[style*="object-fit: cover"],main img[style*="object-fit:cover"],main video[style*="object-fit: cover"],main video[style*="object-fit:cover"]{object-fit:contain!important}
-main article span[style*="width: 34px"] img{object-fit:cover!important}
-main div[style*="aspect-ratio"]:has(> img[style*="object-fit"]),main div[style*="aspect-ratio"]:has(> video),main figure:has(> img[style*="object-fit"]){background-color:#F3E9E4}
-}
+/* ---------- photo frames: shapes matched to the treatment photos (mostly 3:4 portrait) ---------- */
+main section div[style*="repeat(3, minmax(0px, 1fr)); gap: clamp(8px, 1.6vw, 20px)"] div[style*="aspect-ratio: 1 / 1"]{aspect-ratio:4/5!important}
+[data-screen-label="12 Review"] article div[style*="aspect-ratio: 1 / 1"]{aspect-ratio:4/5!important}
+[data-screen-label="04 Three Questions"] div[style*="aspect-ratio: 1 / 1"],[data-screen-label="07 Space"] div[style*="aspect-ratio: 1 / 1"],[data-screen-label="02 By Program"] div[style*="aspect-ratio: 1 / 1"]{aspect-ratio:3/4!important}
+main section div[style*="minmax(min(100%, 220px), 1fr)"] > figure[style*="aspect-ratio: 1 / 1"]{aspect-ratio:7/10!important}
+[data-screen-label="02 Program Detail"] div[style*="flex: 1 1 420px; max-width: 600px"] > div{aspect-ratio:3/4!important}
+/* very different photo shapes: whole photo + soft blurred copy behind it (set by ub-mobile.js) */
+[data-ub-fill]{overflow:hidden!important;isolation:isolate}
+[data-ub-fill]::before{content:"";position:absolute;inset:-12%;background:var(--ub-fill) center/cover no-repeat;filter:blur(18px) saturate(1.05);transform:translateZ(0);pointer-events:none}
+[data-ub-contain]{object-fit:contain!important}
+main [role="img"]{background-color:transparent!important}
+/* Instagram reels played on the page */
+iframe[data-ub-hide]{display:none!important}
+.ub-reel{position:absolute;inset:0;z-index:2;cursor:pointer;background:#2A2422;-webkit-tap-highlight-color:transparent}
+.ub-reel video{position:relative;display:block;width:100%;height:100%;object-fit:contain;background:transparent}
+.ub-reel-btn{position:absolute;left:50%;top:50%;width:58px;height:58px;margin:-29px 0 0 -29px;border-radius:50%;background:rgba(255,255,255,.88);box-shadow:0 6px 20px rgba(0,0,0,.25);transition:opacity .25s,transform .25s;pointer-events:none}
+.ub-reel-btn::after{content:"";position:absolute;left:23px;top:18px;border-style:solid;border-width:11px 0 11px 17px;border-color:transparent transparent transparent #D0857A}
+.ub-reel.is-playing .ub-reel-btn{opacity:0;transform:scale(.8)}
+.ub-reel.is-loading .ub-reel-btn{opacity:.6}}
