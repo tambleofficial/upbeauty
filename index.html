@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<base href="/">
+<title>UP BEAUTY 업뷰티 | 대구 대명동 퍼스널 입술·눈썹·헤어라인 반영구</title>
+<meta name="description" content="업뷰티는 현재 얼굴의 인상과 피부톤, 평소 선호하는 분위기를 살펴본 뒤 눈썹·입술·헤어라인·아이라인 디자인을 대표원장이 1:1로 상담하고 진행하는 퍼스널 뷰티 디자인 스튜디오입니다. 대구 남구 대명로65 7층.">
+<meta name="keywords" content="업뷰티,UP BEAUTY,대구 반영구,대명동 반영구,입술 반영구,퍼스널 입술,눈썹 문신,눈썹 디자인,헤어라인,아이라인">
+<link rel="canonical" href="https://upbeauty.pages.dev/">
+<link rel="icon" type="image/png" href="/assets/logo-dark.png">
+<link rel="alternate" type="application/rss+xml" title="UP JOURNAL" href="https://upbeauty.pages.dev/rss.xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="UP BEAUTY 업뷰티">
+<meta property="og:title" content="UP BEAUTY 업뷰티 | Personal Beauty Design">
+<meta property="og:description" content="자연스럽지만, 분명히 달라지는 인상. 대구 대명동 퍼스널 입술·눈썹·헤어라인 디자인 스튜디오.">
+<meta property="og:url" content="https://upbeauty.pages.dev/">
+<meta property="og:image" content="https://upbeauty.pages.dev/assets/committed/home-hero-2.webp">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#FCFAF8">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BeautySalon","name":"UP BEAUTY 업뷰티","url":"https://upbeauty.pages.dev/","image":"https://upbeauty.pages.dev/assets/committed/home-hero-2.webp","telephone":"+82-10-4953-2393","address":{"@type":"PostalAddress","streetAddress":"대명로 65, 7층 (세종정형외과 건물)","addressLocality":"남구","addressRegion":"대구광역시","addressCountry":"KR"},"sameAs":["https://instagram.com/upbeauty_love","http://pf.kakao.com/_xlPgfn"]}</script>
+<script src="./support.js"></script>
+</head>
+<body>
+<template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="#FCE5DE"/><text x="50" y="62" text-anchor="middle" font-family="Georgia,serif" font-size="30" fill="#D0857A">UP</text></svg></template>
+<x-dc>
+<helmet>
+<style>body{margin:0;background:#FCFAF8}a{color:#3B302E;text-decoration:none}a:hover{color:#C98783}</style>
+</helmet>
+<sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}"><dc-import name="Home" hint-size="100%,100vh"></dc-import></sc-if>
+<sc-if value="{{ isAbout }}" hint-placeholder-val="{{ false }}"><dc-import name="About" hint-size="100%,100vh"></dc-import></sc-if>
+<sc-if value="{{ isProgram }}" hint-placeholder-val="{{ false }}"><dc-import name="Program" hint-size="100%,100vh"></dc-import></sc-if>
+<sc-if value="{{ isCases }}" hint-placeholder-val="{{ false }}"><dc-import name="Cases" hint-size="100%,100vh"></dc-import></sc-if>
+<sc-if value="{{ isPrice }}" hint-placeholder-val="{{ false }}"><dc-import name="Price-Guide" hint-size="100%,100vh"></dc-import></sc-if>
+<sc-if value="{{ isContact }}" hint-placeholder-val="{{ false }}"><dc-import name="Contact" hint-size="100%,100vh"></dc-import></sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  pages = ['Home', 'About', 'Program', 'Cases', 'Price-Guide', 'Contact'];
+  slugs = { Home: '', About: 'about', Program: 'program', Cases: 'cases', 'Price-Guide': 'price-guide', Contact: 'contact' };
+  titles = { Home: 'UP BEAUTY 업뷰티 | 대구 대명동 퍼스널 입술·눈썹·헤어라인 반영구', About: 'ABOUT | UP BEAUTY 업뷰티', Program: 'PROGRAM | UP BEAUTY 업뷰티', Cases: 'CASES | UP BEAUTY 업뷰티', 'Price-Guide': 'PRICE & GUIDE | UP BEAUTY 업뷰티', Contact: 'CONTACT | UP BEAUTY 업뷰티' };
+  state = { page: this.fromHash() };
+  fromHash() { const seg = location.pathname.replace(/^\/+|\/+$/g, '').split('/')[0].toLowerCase(); const bySlug = Object.keys(this.slugs).find(k => this.slugs[k] === seg); if (seg && bySlug) return bySlug; const h = decodeURIComponent((location.hash || '').slice(1)).split('/')[0]; return this.pages.includes(h) ? h : 'Home'; }
+  meta(p) { document.title = this.titles[p]; const c = document.querySelector('link[rel=canonical]'); if (c) c.href = 'https://upbeauty.pages.dev/' + (this.slugs[p] ? this.slugs[p] + '/' : ''); }
+  go(page, anchor) {
+    const same = page === this.state.page;
+    history.pushState(null, '', '/' + (this.slugs[page] ? this.slugs[page] + '/' : '') + (anchor ? '#' + anchor : '')); this.meta(page);
+    this.setState({ page }, () => {
+      const jump = () => { const el = anchor && document.getElementById(anchor); window.scrollTo({ top: el ? el.getBoundingClientRect().top + window.scrollY - 70 : 0, behavior: same && el ? 'smooth' : 'auto' }); };
+      requestAnimationFrame(jump); setTimeout(jump, 400);
+    });
+  }
+  componentDidMount() {
+    this.onClick = e => {
+      const a = e.target.closest && e.target.closest('a[href]'); if (!a) return;
+      const href = a.getAttribute('href') || '';
+      const m = href.match(/^(?:\.\/)?([A-Za-z-]+)\.dc\.html(?:#(.*))?$/);
+      if (m && this.pages.includes(m[1])) { e.preventDefault(); this.go(m[1], m[2]); return; }
+      if (/^#[A-Za-z]/.test(href)) { const el = document.getElementById(href.slice(1)); if (el) { e.preventDefault(); window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 70, behavior: 'smooth' }); } }
+    };
+    this.meta(this.state.page);
+    this.onPop = () => this.setState({ page: this.fromHash() }, () => { this.meta(this.state.page); window.scrollTo(0, 0); });
+    document.addEventListener('click', this.onClick, true);
+    window.addEventListener('popstate', this.onPop);
+  }
+  componentWillUnmount() { document.removeEventListener('click', this.onClick, true); window.removeEventListener('popstate', this.onPop); }
+  renderVals() {
+    const p = this.state.page;
+    return { isHome: p === 'Home', isAbout: p === 'About', isProgram: p === 'Program', isCases: p === 'Cases', isPrice: p === 'Price-Guide', isContact: p === 'Contact' };
+  }
+}
+</script>
+</body>
+</html>

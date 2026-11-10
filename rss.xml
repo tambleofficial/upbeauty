@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>UP JOURNAL | UP BEAUTY 업뷰티</title>
+  <link>https://upbeauty.pages.dev/</link>
+  <atom:link href="https://upbeauty.pages.dev/rss.xml" rel="self" type="application/rss+xml"/>
+  <description>시술 전에 알아두면 좋은 이야기. 업뷰티 UP JOURNAL</description>
+  <language>ko-KR</language>
+  <lastBuildDate>Tue, 10 Nov 2026 09:00:00 +0900</lastBuildDate>
+  <item>
+    <title>입술 디자인 전 어떤 부분을 상담할까요?</title>
+    <link>https://upbeauty.pages.dev/</link>
+    <guid isPermaLink="false">upbeauty-journal-1</guid>
+    <category>LIP</category>
+    <pubDate>Tue, 10 Nov 2026 09:00:00 +0900</pubDate>
+    <description>입술 디자인 전 어떤 부분을 상담할까요? — UP BEAUTY UP JOURNAL</description>
+  </item>
+  <item>
+    <title>눈썹 디자인은 무엇을 기준으로 정할까요?</title>
+    <link>https://upbeauty.pages.dev/</link>
+    <guid isPermaLink="false">upbeauty-journal-2</guid>
+    <category>BROW</category>
+    <pubDate>Tue, 10 Nov 2026 09:00:00 +0900</pubDate>
+    <description>눈썹 디자인은 무엇을 기준으로 정할까요? — UP BEAUTY UP JOURNAL</description>
+  </item>
+  <item>
+    <title>헤어라인 상담 전 확인하면 좋은 것</title>
+    <link>https://upbeauty.pages.dev/</link>
+    <guid isPermaLink="false">upbeauty-journal-3</guid>
+    <category>HAIRLINE</category>
+    <pubDate>Tue, 10 Nov 2026 09:00:00 +0900</pubDate>
+    <description>헤어라인 상담 전 확인하면 좋은 것 — UP BEAUTY UP JOURNAL</description>
+  </item>
+  <item>
+    <title>처음 방문할 때 어떤 내용을 이야기하면 될까요?</title>
+    <link>https://upbeauty.pages.dev/</link>
+    <guid isPermaLink="false">upbeauty-journal-4</guid>
+    <category>GUIDE</category>
+    <pubDate>Tue, 10 Nov 2026 09:00:00 +0900</pubDate>
+    <description>처음 방문할 때 어떤 내용을 이야기하면 될까요? — UP BEAUTY UP JOURNAL</description>
+  </item>
+</channel>
+</rss>
