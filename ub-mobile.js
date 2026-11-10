@@ -110,12 +110,14 @@
   }
   function setFill(box, url) {
     box.__ubFill = url;
+    /* the blurred copy must stay inside this frame: make sure the frame is a positioning box */
+    if (!box.hasAttribute('data-ub-static') && getComputedStyle(box).position === 'static') box.setAttribute('data-ub-static', '');
     if (!box.hasAttribute('data-ub-fill')) box.setAttribute('data-ub-fill', '');
     if (box.style.getPropertyValue('--ub-fill') !== url) box.style.setProperty('--ub-fill', url);
   }
   function clearFill(box) {
     if (!box || !box.__ubFill) return;
-    box.__ubFill = null; box.removeAttribute('data-ub-fill'); box.style.removeProperty('--ub-fill');
+    box.__ubFill = null; box.removeAttribute('data-ub-fill'); box.removeAttribute('data-ub-static'); box.style.removeProperty('--ub-fill');
   }
   function decide(el, w, h, src) {
     if (!mq.matches || !w || !h) return;

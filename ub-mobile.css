@@ -5,8 +5,8 @@
 @media (max-width:760px){
 
 /* ---------- 0. Base / performance ---------- */
-html{-webkit-text-size-adjust:100%;scroll-behavior:auto}
-body{overflow-x:hidden;-webkit-tap-highlight-color:rgba(208,133,122,.15)}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%;scroll-behavior:auto;overflow-x:clip}
+body{overflow-x:hidden;overflow-x:clip;-webkit-tap-highlight-color:rgba(208,133,122,.15)}
 main{overflow:clip!important}
 main *{-webkit-tap-highlight-color:transparent}
 /* light reveal: no blur, no clip-path (both are expensive on phones) */
@@ -320,8 +320,9 @@ main section div[style*="repeat(3, minmax(0px, 1fr)); gap: clamp(8px, 1.6vw, 20p
 main section div[style*="minmax(min(100%, 220px), 1fr)"] > figure[style*="aspect-ratio: 1 / 1"]{aspect-ratio:7/10!important}
 [data-screen-label="02 Program Detail"] div[style*="flex: 1 1 420px; max-width: 600px"] > div{aspect-ratio:3/4!important}
 /* very different photo shapes: whole photo + soft blurred copy behind it (set by ub-mobile.js) */
-[data-ub-fill]{overflow:hidden!important;isolation:isolate}
-[data-ub-fill]::before{content:"";position:absolute;inset:-12%;background:var(--ub-fill) center/cover no-repeat;filter:blur(18px) saturate(1.05);transform:translateZ(0);pointer-events:none}
+[data-ub-fill]{overflow:hidden!important;isolation:isolate;contain:paint}
+[data-ub-fill][data-ub-static]{position:relative!important}
+[data-ub-fill]::before{content:"";position:absolute;inset:-12%;background:var(--ub-fill) center/cover no-repeat;filter:blur(18px) saturate(1.05);transform:translateZ(0);pointer-events:none;z-index:-1}
 [data-ub-contain]{object-fit:contain!important}
 main [role="img"]{background-color:transparent!important}
 /* Instagram reels played on the page */
