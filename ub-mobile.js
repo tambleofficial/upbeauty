@@ -94,7 +94,8 @@
      Frames keep their shape. If a photo's shape is close to the frame (<=7% off) it simply fills it.
      If it is very different, the whole photo is shown and the leftover area is filled with a
      soft blurred copy of the same photo (no blank bars). */
-  var FIT_TH = 0.07;
+  /* owner's call: photos simply fill (zoom into) their frame - no blurred side fill */
+  var FIT_TH = 9;
   function boxOf(el) {
     var p = el.parentElement;
     for (var i = 0; i < 4 && p && p.tagName !== 'MAIN' && p.tagName !== 'SECTION'; i++, p = p.parentElement) {

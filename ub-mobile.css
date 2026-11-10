@@ -332,4 +332,18 @@ iframe[data-ub-hide]{display:none!important}
 .ub-reel-btn{position:absolute;left:50%;top:50%;width:58px;height:58px;margin:-29px 0 0 -29px;border-radius:50%;background:rgba(255,255,255,.88);box-shadow:0 6px 20px rgba(0,0,0,.25);transition:opacity .25s,transform .25s;pointer-events:none}
 .ub-reel-btn::after{content:"";position:absolute;left:23px;top:18px;border-style:solid;border-width:11px 0 11px 17px;border-color:transparent transparent transparent #D0857A}
 .ub-reel.is-playing .ub-reel-btn{opacity:0;transform:scale(.8)}
-.ub-reel.is-loading .ub-reel-btn{opacity:.6}}
+.ub-reel.is-loading .ub-reel-btn{opacity:.6}/* Program > concern finder: the answer opens right under the chosen concern */
+[data-screen-label="03 Concern Finder"] div[style*="gap: clamp(24px, 3vw, 48px)"]{display:flex!important;flex-direction:column!important;flex-wrap:nowrap!important;gap:10px!important}
+[data-screen-label="03 Concern Finder"] div[style*="gap: clamp(24px, 3vw, 48px)"] > div:first-child{display:contents!important}
+[data-screen-label="03 Concern Finder"] div[style*="gap: clamp(24px, 3vw, 48px)"] > div:first-child > button:nth-child(1){order:2}
+[data-screen-label="03 Concern Finder"] div[style*="gap: clamp(24px, 3vw, 48px)"] > div:first-child > button:nth-child(2){order:4}
+[data-screen-label="03 Concern Finder"] div[style*="gap: clamp(24px, 3vw, 48px)"] > div:first-child > button:nth-child(3){order:6}
+[data-screen-label="03 Concern Finder"] div[style*="gap: clamp(24px, 3vw, 48px)"] > div:first-child > button:nth-child(4){order:8}
+[data-screen-label="03 Concern Finder"] div[style*="gap: clamp(24px, 3vw, 48px)"] > div:first-child > button:nth-child(5){order:10}
+[data-screen-label="03 Concern Finder"] div[style*="gap: clamp(24px, 3vw, 48px)"] > div:last-child{order:3;margin:0 0 6px!important;flex:none!important}
+[data-screen-label="03 Concern Finder"] div[style*="gap: clamp(24px, 3vw, 48px)"]:has(> div:first-child > button:nth-child(1)[style*="background: rgb(37, 34, 32)"]) > div:last-child{order:3}
+[data-screen-label="03 Concern Finder"] div[style*="gap: clamp(24px, 3vw, 48px)"]:has(> div:first-child > button:nth-child(2)[style*="background: rgb(37, 34, 32)"]) > div:last-child{order:5}
+[data-screen-label="03 Concern Finder"] div[style*="gap: clamp(24px, 3vw, 48px)"]:has(> div:first-child > button:nth-child(3)[style*="background: rgb(37, 34, 32)"]) > div:last-child{order:7}
+[data-screen-label="03 Concern Finder"] div[style*="gap: clamp(24px, 3vw, 48px)"]:has(> div:first-child > button:nth-child(4)[style*="background: rgb(37, 34, 32)"]) > div:last-child{order:9}
+[data-screen-label="03 Concern Finder"] div[style*="gap: clamp(24px, 3vw, 48px)"]:has(> div:first-child > button:nth-child(5)[style*="background: rgb(37, 34, 32)"]) > div:last-child{order:11}
+}
