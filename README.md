@@ -18,3 +18,8 @@ index.html, sitemap.xml, robots.txt, rss.xml 안의 `https://upbeauty.pages.dev`
 
 ## 등록
 - Google Search Console / 네이버 서치어드바이저에 사이트 등록 후 `https://upbeauty.pages.dev/sitemap.xml` 과 `https://upbeauty.pages.dev/rss.xml` 을 제출합니다.
+
+## 편집 모드
+
+- 주소: https://upbeauty.pages.dev/edit (비밀번호는 Cloudflare 비밀값 `CMS_PASSWORD`)
+- 저장하면 `content/text.json`, `content/media.json`, `assets/uploads/` 에 커밋 1개로 기록됩니다.
