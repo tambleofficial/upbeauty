@@ -228,7 +228,6 @@
     ticking = false;
     var h = document.querySelector('header');
     if (!h) return;
-    if (!mq.matches) { root.classList.remove('ub-hdr-fixed', 'ub-hdr-show'); return; }
     var hh = h.offsetHeight || 60, ph = h.parentElement;
     if (ph && ph.tagName !== 'BODY' && ph.style.minHeight !== hh + 'px') ph.style.minHeight = hh + 'px';
     var y = window.scrollY, dy = y - lastY;
@@ -243,6 +242,8 @@
     if (Math.abs(dy) > 4 || y <= hh) lastY = y;
   }
   window.addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(hdr); } }, { passive: true });
+  /* PC 에도 같은 헤더 규칙 (ub-mobile.css 는 모바일에서만 읽힘) */
+  (function () { var st = document.createElement('style'); st.textContent = 'html.ub-hdr-fixed header{position:fixed!important;top:0!important;left:0;right:0;transform:translateY(-110%);transition:transform .3s cubic-bezier(.2,.7,.2,1);box-shadow:0 6px 18px rgba(37,34,32,.07)}html.ub-hdr-fixed.ub-hdr-show header{transform:none}'; (document.head || document.documentElement).appendChild(st); })();
 
   function start() {
     if (started || !mq.matches) return;
