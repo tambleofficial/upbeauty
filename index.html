@@ -7,19 +7,19 @@
 <title>UP BEAUTY 업뷰티 | 대구 대명동 퍼스널 입술·눈썹·헤어라인 반영구</title>
 <meta name="description" content="업뷰티는 현재 얼굴의 인상과 피부톤, 평소 선호하는 분위기를 살펴본 뒤 눈썹·입술·헤어라인·아이라인 디자인을 대표원장이 1:1로 상담하고 진행하는 퍼스널 뷰티 디자인 스튜디오입니다. 대구 남구 대명로65 7층.">
 <meta name="keywords" content="업뷰티,UP BEAUTY,대구 반영구,대명동 반영구,입술 반영구,퍼스널 입술,눈썹 문신,눈썹 디자인,헤어라인,아이라인">
-<link rel="canonical" href="https://upbeauty.pages.dev/">
+<link rel="canonical" href="https://upbeauty1004.com/">
 <link rel="icon" type="image/png" href="/assets/logo-dark.png">
-<link rel="alternate" type="application/rss+xml" title="UP JOURNAL" href="https://upbeauty.pages.dev/rss.xml">
+<link rel="alternate" type="application/rss+xml" title="UP JOURNAL" href="https://upbeauty1004.com/rss.xml">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="UP BEAUTY 업뷰티">
 <meta property="og:title" content="UP BEAUTY 업뷰티 | Personal Beauty Design">
 <meta property="og:description" content="자연스럽지만, 분명히 달라지는 인상. 대구 대명동 퍼스널 입술·눈썹·헤어라인 디자인 스튜디오.">
-<meta property="og:url" content="https://upbeauty.pages.dev/">
-<meta property="og:image" content="https://upbeauty.pages.dev/assets/committed/home-hero-2.webp">
+<meta property="og:url" content="https://upbeauty1004.com/">
+<meta property="og:image" content="https://upbeauty1004.com/assets/committed/home-hero-2.webp">
 <meta property="og:locale" content="ko_KR">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#FCFAF8">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BeautySalon","name":"UP BEAUTY 업뷰티","url":"https://upbeauty.pages.dev/","image":"https://upbeauty.pages.dev/assets/committed/home-hero-2.webp","telephone":"+82-10-4953-2393","address":{"@type":"PostalAddress","streetAddress":"대명로 65, 7층 (세종정형외과 건물)","addressLocality":"남구","addressRegion":"대구광역시","addressCountry":"KR"},"sameAs":["https://instagram.com/upbeauty_love","http://pf.kakao.com/_xlPgfn"]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BeautySalon","name":"UP BEAUTY 업뷰티","url":"https://upbeauty1004.com/","image":"https://upbeauty1004.com/assets/committed/home-hero-2.webp","telephone":"+82-10-4953-2393","address":{"@type":"PostalAddress","streetAddress":"대명로 65, 7층 (세종정형외과 건물)","addressLocality":"남구","addressRegion":"대구광역시","addressCountry":"KR"},"sameAs":["https://instagram.com/upbeauty_love","http://pf.kakao.com/_xlPgfn"]}</script>
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -48,7 +48,7 @@ class Component extends DCLogic {
   titles = { Home: 'UP BEAUTY 업뷰티 | 대구 대명동 퍼스널 입술·눈썹·헤어라인 반영구', About: 'ABOUT | UP BEAUTY 업뷰티', Program: 'PROGRAM | UP BEAUTY 업뷰티', Cases: 'CASES | UP BEAUTY 업뷰티', 'Price-Guide': 'PRICE & GUIDE | UP BEAUTY 업뷰티', Contact: 'CONTACT | UP BEAUTY 업뷰티' };
   state = { page: this.fromHash() };
   fromHash() { const seg = location.pathname.replace(/^\/+|\/+$/g, '').split('/')[0].toLowerCase(); const bySlug = Object.keys(this.slugs).find(k => this.slugs[k] === seg); if (seg && bySlug) return bySlug; const h = decodeURIComponent((location.hash || '').slice(1)).split('/')[0]; return this.pages.includes(h) ? h : 'Home'; }
-  meta(p) { document.title = this.titles[p]; const c = document.querySelector('link[rel=canonical]'); if (c) c.href = 'https://upbeauty.pages.dev/' + (this.slugs[p] ? this.slugs[p] + '/' : ''); }
+  meta(p) { document.title = this.titles[p]; const c = document.querySelector('link[rel=canonical]'); if (c) c.href = 'https://upbeauty1004.com/' + (this.slugs[p] ? this.slugs[p] + '/' : ''); }
   go(page, anchor) {
     const same = page === this.state.page;
     history.pushState(null, '', '/' + (this.slugs[page] ? this.slugs[page] + '/' : '') + (anchor ? '#' + anchor : '')); this.meta(page);

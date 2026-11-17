@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://upbeauty.pages.dev/sitemap.xml
+Sitemap: https://upbeauty1004.com/sitemap.xml
