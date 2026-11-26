@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html style="zoom: 0.8;" class=""><head>
+<!-- 검색로봇용 미리 그린 화면: 방문자에게 보이는 화면과 같은 내용 (functions/_middleware.js 가 로봇에게만 보냄) --><style>
+    .sc-placeholder{background:color-mix(in srgb,currentColor 8%,transparent);
+      border:1px solid color-mix(in srgb,currentColor 50%,transparent);
+      border-radius:2px;box-sizing:border-box;overflow:hidden}
+    @keyframes sc-shine{0%{background-position:100% 50%}100%{background-position:0% 50%}}
+    html.sc-dc-streaming .sc-placeholder,
+    html.sc-dc-streaming .sc-interp.sc-missing{position:relative;
+      background:color-mix(in srgb,currentColor 5%,transparent);
+      border-color:transparent}
+    html.sc-dc-streaming .sc-placeholder::before,
+    html.sc-dc-streaming .sc-interp.sc-missing::before{content:'';
+      position:absolute;inset:0;pointer-events:none;
+      background:linear-gradient(90deg,rgba(217,119,87,0) 25%,rgba(247,225,211,.95) 37%,rgba(217,119,87,0) 63%);
+      background-size:400% 100%;animation:sc-shine 1.4s ease infinite}
+    html.sc-dc-streaming .sc-placeholder:nth-child(n+9 of .sc-placeholder)::before,
+    html.sc-dc-streaming .sc-interp.sc-missing:nth-child(n+9 of .sc-interp.sc-missing)::before{animation:none;
+      background:color-mix(in srgb,currentColor 8%,transparent)}
+    .sc-placeholder-error{padding:4px 8px;font:11px/1.4 ui-monospace,monospace;
+      color:color-mix(in srgb,currentColor 70%,transparent);word-break:break-word}
+    .sc-interp.sc-missing{display:inline-block;width:2em;height:1em;overflow:hidden;
+      vertical-align:text-bottom;background:rgba(255,255,255,.3);border:1px solid rgba(0,0,0,.5);
+      border-radius:2px;box-sizing:border-box;color:transparent;
+      user-select:none}
+    .sc-interp.sc-unresolved{font-family:ui-monospace,monospace;font-size:.85em;
+      color:color-mix(in srgb,currentColor 50%,transparent);
+      background:color-mix(in srgb,currentColor 10%,transparent);border-radius:3px;
+      padding:0 3px}
+    .sc-host.sc-has-error{position:relative}
+    .sc-logic-error{position:absolute;top:8px;left:8px;z-index:2147483647;max-width:60ch;
+      padding:6px 10px;background:#b00020;color:#fff;font:12px/1.4 ui-monospace,monospace;
+      border-radius:4px;white-space:pre-wrap;pointer-events:none}
+    /* Mirrors PRINT_BASELINE_CSS in apps/web deck-stage-export.ts — keep both
+       in sync until dc-runtime regains a build step. */
+    @media print {
+      @page { margin: 0.5cm; }
+      figure, table { break-inside: avoid; }
+      #dc-root, #dc-root > .sc-host { height: auto; }
+      *, *::before, *::after {
+        print-color-adjust: exact; -webkit-print-color-adjust: exact;
+        backdrop-filter: none !important; -webkit-backdrop-filter: none !important;
+        animation-delay: -99s !important; animation-duration: .001s !important;
+        animation-iteration-count: 1 !important; animation-fill-mode: both !important;
+        animation-play-state: running !important; transition-duration: 0s !important;
+      }
+    }
+  </style>
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<base href="/">
+<title>PRICE &amp; GUIDE | UP BEAUTY 업뷰티</title>
+<meta name="description" content="업뷰티는 현재 얼굴의 인상과 피부톤, 평소 선호하는 분위기를 살펴본 뒤 눈썹·입술·헤어라인·아이라인 디자인을 대표원장이 1:1로 상담하고 진행하는 퍼스널 뷰티 디자인 스튜디오입니다. 대구 남구 대명로65 7층.">
+<meta name="keywords" content="업뷰티,UP BEAUTY,대구 반영구,대명동 반영구,입술 반영구,퍼스널 입술,눈썹 문신,눈썹 디자인,헤어라인,아이라인">
+<link rel="canonical" href="https://upbeauty1004.com/price-guide/">
+<link rel="alternate" type="application/rss+xml" title="UP JOURNAL" href="https://upbeauty1004.com/rss.xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="UP BEAUTY 업뷰티">
+<meta property="og:title" content="UP BEAUTY 업뷰티 | Personal Beauty Design">
+<meta property="og:description" content="자연스럽지만, 분명히 달라지는 인상. 대구 대명동 퍼스널 입술·눈썹·헤어라인 디자인 스튜디오.">
+<meta property="og:url" content="https://upbeauty1004.com/">
+<meta property="og:image" content="https://upbeauty1004.com/assets/committed/home-hero-2.webp">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#FCFAF8">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BeautySalon","name":"UP BEAUTY 업뷰티","url":"https://upbeauty1004.com/","image":"https://upbeauty1004.com/assets/committed/home-hero-2.webp","telephone":"+82-10-4953-2393","address":{"@type":"PostalAddress","streetAddress":"대명로 65, 7층 (세종정형외과 건물)","addressLocality":"남구","addressRegion":"대구광역시","addressCountry":"KR"},"sameAs":["https://instagram.com/upbeauty_love","http://pf.kakao.com/_xlPgfn"]}</script>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin="">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="/ub-mobile.css?v=7" media="(max-width:760px)">
+<style>html.ub-hdr-fixed header{position:fixed!important;top:0!important;left:0;right:0;transform:translateY(-110%);transition:transform .3s cubic-bezier(.2,.7,.2,1);box-shadow:0 6px 18px rgba(37,34,32,.07)}html.ub-hdr-fixed.ub-hdr-show header{transform:none}</style>
+
+<style>x-dc{display:none!important}</style>
+<style>html,body{height:100%;margin:0}#dc-root,#dc-root>.sc-host{height:100%}</style><style>body{margin:0;background:#FCFAF8}a{color:#3B302E;text-decoration:none}a:hover{color:#C98783}</style><style></style><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&amp;display=swap"><style>body{margin:0;background:#FFFFFF;color:#252220;-webkit-font-smoothing:antialiased}a{color:#3B302E;text-decoration:none}a:hover{color:#C98783}</style><style id="ub-mobile">@media (max-width:760px){html,body{-webkit-text-size-adjust:100%}h1,h2,h3,p,li,blockquote{word-break:keep-all;overflow-wrap:break-word}[data-m=tri]{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:8px!important;padding:0 16px!important}[data-m=tri] figure{gap:8px!important}[data-m=tri] figcaption{flex-direction:column!important;align-items:flex-start!important;gap:2px!important;padding-top:8px!important}[data-m=tri] figcaption span:first-child{font-size:16px!important}[data-m=tri] figcaption span:last-child{font-size:9.5px!important;letter-spacing:.1em!important;white-space:normal!important}footer a{display:inline-flex;align-items:center;min-height:40px}footer{padding-bottom:100px!important}iframe{max-width:100%}}</style></head>
+<body>
+<nav aria-label="사이트 메뉴" class="sj-seo-nav"><ul><li><a href="/">홈</a></li><li><a href="/about/">ABOUT</a></li><li><a href="/program/">시술항목</a></li><li><a href="/cases/">시술전/후&고객후기</a></li><li><a href="/price-guide/">PRICE & GUIDE</a></li><li><a href="/contact/">상담안내&오시는길</a></li></ul></nav>
+
+<div id="dc-root"><div class="sc-host" data-sc-name="Root"><div class="sc-host" data-sc-name="Price-Guide"><div class="sc-host" data-sc-name="SiteHeader" style="min-height: 67px;"><header style="position: sticky; top: 0px; z-index: 60; background: rgb(252, 250, 248); border-bottom: 1px solid rgb(239, 231, 227); font-family: Pretendard, &quot;Apple SD Gothic Neo&quot;, sans-serif;">
+  <div style="max-width: 1440px; margin: 0px auto; padding: 16px clamp(20px, 5vw, 72px); display: flex; align-items: center; justify-content: space-between; gap: 24px; box-sizing: border-box;">
+    <a href="Home.dc.html" aria-label="UP BEAUTY 홈" style="display: flex; align-items: center;"><img src="/assets/logo-dark.png" alt="UP BEAUTY 업뷰티" style="height: 34px; width: auto; display: block;"></a>
+    
+      <nav style="display: flex; align-items: center; gap: clamp(20px, 3vw, 44px);">
+        
+          <a href="About.dc.html" class="scp7" style="display: flex; align-items: baseline; gap: 7px; font-size: 13.5px; letter-spacing: 0.22em; font-weight: 500; color: rgb(37, 34, 32); white-space: nowrap; padding: 6px 0px; border-bottom: 1px solid transparent;">
+            <span style="font-family: &quot;Cormorant Garamond&quot;, serif; font-size: 14.5px; letter-spacing: 0px; color: rgb(217, 160, 154);"><span class="sc-interp">01</span></span><span class="sc-interp">ABOUT</span>
+          </a>
+        
+          <a href="Program.dc.html" class="scp7" style="display: flex; align-items: baseline; gap: 7px; font-size: 13.5px; letter-spacing: 0.22em; font-weight: 500; color: rgb(37, 34, 32); white-space: nowrap; padding: 6px 0px; border-bottom: 1px solid transparent;">
+            <span style="font-family: &quot;Cormorant Garamond&quot;, serif; font-size: 14.5px; letter-spacing: 0px; color: rgb(217, 160, 154);"><span class="sc-interp">02</span></span><span class="sc-interp">시술항목</span>
+          </a>
+        
+          <a href="Cases.dc.html" class="scp7" style="display: flex; align-items: baseline; gap: 7px; font-size: 13.5px; letter-spacing: 0.22em; font-weight: 500; color: rgb(37, 34, 32); white-space: nowrap; padding: 6px 0px; border-bottom: 1px solid transparent;">
+            <span style="font-family: &quot;Cormorant Garamond&quot;, serif; font-size: 14.5px; letter-spacing: 0px; color: rgb(217, 160, 154);"><span class="sc-interp">03</span></span><span class="sc-interp">시술전/후&amp;고객후기</span>
+          </a>
+        
+          <a href="Price-Guide.dc.html" class="scp7" style="display: flex; align-items: baseline; gap: 7px; font-size: 13.5px; letter-spacing: 0.22em; font-weight: 500; color: rgb(201, 135, 131); white-space: nowrap; padding: 6px 0px; border-bottom: 1px solid rgb(217, 160, 154);">
+            <span style="font-family: &quot;Cormorant Garamond&quot;, serif; font-size: 14.5px; letter-spacing: 0px; color: rgb(217, 160, 154);"><span class="sc-interp">04</span></span><span class="sc-interp">PRICE &amp; GUIDE</span>
+          </a>
+        
+          <a href="Contact.dc.html" class="scp7" style="display: flex; align-items: baseline; gap: 7px; font-size: 13.5px; letter-spacing: 0.22em; font-weight: 500; color: rgb(37, 34, 32); white-space: nowrap; padding: 6px 0px; border-bottom: 1px solid transparent;">
+            <span style="font-family: &quot;Cormorant Garamond&quot;, serif; font-size: 14.5px; letter-spacing: 0px; color: rgb(217, 160, 154);"><span class="sc-interp">05</span></span><span class="sc-interp">상담안내&amp;오시는길</span>
+          </a>
+        
+      </nav>
+    
+    
+  </div>
+  </header>
+  <div data-float-in="" style="position: fixed; right: clamp(16px, 1.8vw, 32px); bottom: clamp(20px, 3vw, 40px); z-index: 55; display: flex; flex-direction: column; align-items: center; gap: 14px; font-family: Pretendard, sans-serif;">
+    <a href="http://pf.kakao.com/_xlPgfn/chat" target="_blank" aria-label="카카오톡 상담" class="scp8" style="position: relative; width: 112px; height: 112px; display: flex; align-items: center; justify-content: center; color: rgb(25, 25, 25);">
+      <svg data-spin="" viewBox="0 0 112 112" width="112" height="112" style="position: absolute; inset: 0px; overflow: visible;"><defs><path id="ubCirc" d="M56,56 m-47,0 a47,47 0 1,1 94,0 a47,47 0 1,1 -94,0"></path></defs><text fill="#C98783" style="font-family: Pretendard, sans-serif; font-size: 10.5px; letter-spacing: 3.2px; font-weight: 600;"><textPath href="#ubCirc" textLength="292" lengthAdjust="spacing">KAKAO TALK · 1:1 CONSULT · </textPath></text></svg>
+      <span data-pulse="" style="position: absolute; width: 72px; height: 72px; border-radius: 50%; background: rgb(254, 229, 0);"></span>
+      <span class="scp9" style="position: relative; width: 72px; height: 72px; border-radius: 50%; background: rgb(254, 229, 0); box-shadow: rgba(59, 48, 46, 0.22) 0px 12px 30px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; transition: transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1);"><svg width="26" height="26" viewBox="0 0 24 24" fill="#191919"><path d="M12 4c-4.6 0-8.3 2.9-8.3 6.5 0 2.3 1.5 4.3 3.8 5.5l-.8 3.3c-.1.3.3.5.5.3l3.9-2.6c.3 0 .6.1.9.1 4.6 0 8.3-2.9 8.3-6.6S16.6 4 12 4z"></path></svg><span style="font-size: 10.5px; font-weight: 700; letter-spacing: 0.02em;">상담</span></span>
+    </a>
+    <div style="display: flex; flex-direction: column; gap: 8px; padding: 8px; border-radius: 999px; background: rgba(255, 255, 255, 0.92); backdrop-filter: blur(8px); box-shadow: rgba(59, 48, 46, 0.16) 0px 12px 30px; border: 1px solid rgb(241, 226, 221);">
+      <a href="tel:010-4953-2393" aria-label="전화 상담 010-4953-2393" data-tip="" class="scpa" style="position: relative; width: 52px; height: 52px; border-radius: 50%; background: rgb(208, 133, 122); display: flex; align-items: center; justify-content: center; transition: transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1);"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"></path></svg><span style="position: absolute; right: calc(100% + 14px); top: 50%; transform: translate(8px, -50%); padding: 9px 14px; border-radius: 999px; background: rgb(37, 34, 32); color: rgb(255, 255, 255); font-size: 13px; font-weight: 500; white-space: nowrap; pointer-events: none; opacity: 0; transition: opacity 0.4s, transform 0.4s;">010-4953-2393</span></a>
+      <a href="https://instagram.com/upbeauty_love" target="_blank" aria-label="인스타그램" data-tip="" class="scpa" style="position: relative; width: 52px; height: 52px; border-radius: 50%; background: linear-gradient(45deg, rgb(249, 206, 52) 0%, rgb(238, 42, 123) 50%, rgb(98, 40, 215) 100%); display: flex; align-items: center; justify-content: center; transition: transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1);"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="5"></rect><circle cx="12" cy="12" r="3.6"></circle><circle cx="16.8" cy="7.2" r="0.8" fill="#FFFFFF" stroke="none"></circle></svg><span style="position: absolute; right: calc(100% + 14px); top: 50%; transform: translate(8px, -50%); padding: 9px 14px; border-radius: 999px; background: rgb(37, 34, 32); color: rgb(255, 255, 255); font-size: 13px; font-weight: 500; white-space: nowrap; pointer-events: none; opacity: 0; transition: opacity 0.4s, transform 0.4s;">@upbeauty_love</span></a>
+      <button aria-label="맨 위로" class="scpb" style="width: 52px; height: 52px; border-radius: 50%; border: 1px solid rgb(239, 220, 214); background: rgb(255, 255, 255); cursor: pointer; display: flex; align-items: center; justify-content: center; font-family: &quot;Cormorant Garamond&quot;, serif; font-size: 13px; letter-spacing: 0.1em; color: rgb(59, 48, 46); transition: background 0.4s;">TOP</button>
+    </div>
+  </div></div><main style="font-family: Pretendard, &quot;Apple SD Gothic Neo&quot;, sans-serif; background: rgb(255, 255, 255); color: rgb(37, 34, 32); overflow: hidden; word-break: keep-all;"><section data-screen-label="01 Hero" style="position: relative; padding: clamp(96px, 11vw, 160px) clamp(24px, 5vw, 64px) clamp(88px, 10vw, 140px); background: linear-gradient(rgb(255, 255, 255) 0%, rgb(255, 255, 255) 35%, rgb(255, 244, 238) 100%); text-align: center;">
+    <div style="max-width: 1000px; margin: 0px auto; display: flex; flex-direction: column; align-items: center; gap: clamp(24px, 2.6vw, 34px);">
+      <div data-reveal="" style="display: flex; align-items: center; justify-content: center; gap: 14px; font-size: 13px; letter-spacing: 0.34em; color: rgb(208, 133, 122); font-weight: 500; white-space: nowrap;"><span data-line="" style="display: block; width: 40px; height: 1px; background: rgb(232, 185, 174);"></span>04 — PRICE &amp; GUIDE<span data-line="" style="display: block; width: 40px; height: 1px; background: rgb(232, 185, 174);"></span></div>
+      <h1 style="margin: 0px; font-family: &quot;Cormorant Garamond&quot;, serif; font-weight: 300; font-size: clamp(60px, 9vw, 136px); line-height: 0.95; letter-spacing: -0.02em; color: rgb(59, 48, 46);"><span data-mask="" style="display: block;">Program</span><span data-mask="" data-delay="120" style="display: block; font-style: italic; color: rgb(208, 133, 122);">&amp; Guide</span></h1>
+      <span data-reveal="" data-delay="220" aria-hidden="true" style="display: block; width: 1px; height: 56px; background: rgb(232, 185, 174);"></span>
+      <p data-reveal="" data-delay="280" style="margin: 0px; font-size: clamp(20px, 2vw, 28px); font-weight: 600; line-height: 1.55; letter-spacing: -0.03em;">궁금한 정보를<br>한 페이지에서 확인하세요.</p>
+      <p data-reveal="" data-delay="340" style="margin: 0px; max-width: 560px; font-size: 17px; line-height: 1.85; color: rgb(59, 48, 46);">소요 시간과 리터치, 방문 전 확인할 내용과 진행 후 관리까지 순서대로 정리했습니다.</p>
+      <div data-reveal="" data-delay="380" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 8px;"><a href="#price" class="scp0" style="height: 44px; padding: 0px 20px; border-radius: 999px; border: 1px solid rgb(232, 185, 174); background: rgb(255, 255, 255); display: flex; align-items: center; font-size: 13px; letter-spacing: 0.18em; font-weight: 500; color: rgb(37, 34, 32);">PROGRAM</a><a href="#time" class="scp0" style="height: 44px; padding: 0px 20px; border-radius: 999px; border: 1px solid rgb(232, 185, 174); background: rgb(255, 255, 255); display: flex; align-items: center; font-size: 13px; letter-spacing: 0.18em; font-weight: 500; color: rgb(37, 34, 32);">TIME</a><a href="#check" class="scp0" style="height: 44px; padding: 0px 20px; border-radius: 999px; border: 1px solid rgb(232, 185, 174); background: rgb(255, 255, 255); display: flex; align-items: center; font-size: 13px; letter-spacing: 0.18em; font-weight: 500; color: rgb(37, 34, 32);">BEFORE VISIT</a><a href="#care" class="scp0" style="height: 44px; padding: 0px 20px; border-radius: 999px; border: 1px solid rgb(232, 185, 174); background: rgb(255, 255, 255); display: flex; align-items: center; font-size: 13px; letter-spacing: 0.18em; font-weight: 500; color: rgb(37, 34, 32);">AFTER GUIDE</a></div>
+    </div>
+  </section>
+
+  <section id="price" data-screen-label="02 Program Guide" style="padding: clamp(88px, 10vw, 140px) clamp(24px, 5vw, 64px); background: rgb(255, 255, 255); scroll-margin-top: 70px;">
+    <div style="max-width: 1320px; margin: 0px auto;">
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 24px 48px; margin-bottom: clamp(40px, 5vw, 64px);">
+        <div style="display: flex; flex-direction: column; gap: 20px;">
+          <div data-reveal="" style="display: flex; align-items: center; gap: 14px; font-size: 13px; letter-spacing: 0.34em; color: rgb(208, 133, 122); font-weight: 500; white-space: nowrap;"><span style="font-family: &quot;Cormorant Garamond&quot;, serif; font-size: 22px; letter-spacing: 0px;">02</span><span data-line="" style="display: block; width: 32px; height: 1px; background: rgb(232, 185, 174);"></span>PROGRAM GUIDE</div>
+          <h2 style="margin: 0px; width: 100%; font-size: clamp(28px, 3.2vw, 44px); font-weight: 600; line-height: 1.4; letter-spacing: -0.04em; color: rgb(37, 34, 32);"><span data-mask="" style="display: block;">프로그램별 안내</span></h2>
+        </div>
+        <p data-reveal="" style="margin: 0px; max-width: 440px; font-size: 17px; line-height: 1.85; color: rgb(59, 48, 46);">상세 진행 방향은 상담을 통해 현재 상태를 확인한 뒤 안내드립니다.</p>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 16px;">
+        <div data-reveal="" data-delay="0" style="display: flex; flex-direction: column; background: rgb(253, 246, 243);">
+          <div style="padding: 30px 28px 24px; display: flex; flex-direction: column; gap: 10px; border-bottom: 1px solid rgb(241, 221, 214);"><span style="display: flex; justify-content: space-between; align-items: baseline;"><span style="font-family: &quot;Cormorant Garamond&quot;, serif; font-size: 26px; color: rgb(208, 133, 122);">01</span><span style="font-size: 13px; letter-spacing: 0.24em; font-weight: 600;">LIP</span></span><span style="font-size: 22px; font-weight: 600; letter-spacing: -0.03em;">무통 퍼스널 입술 · 하트 오버립</span><span style="font-size: 15.5px; line-height: 1.7; color: rgb(59, 48, 46);">입술 색감과 형태, 피부톤에 맞춘 디자인</span></div>
+          
+          <div style="padding: 20px 28px 28px; display: flex; flex-direction: column; gap: 12px; font-size: 15.5px;">
+            <span style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding-bottom: 14px; margin-bottom: 2px; border-bottom: 1px solid rgb(241, 226, 221);"><span style="flex: 0 0 auto; font-size: 13px; letter-spacing: 0.24em; color: rgb(141, 123, 121);">PRICE</span><span style="font-size: 20px; font-weight: 600; color: rgb(37, 34, 32);">별도문의</span></span>
+            <span style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; line-height: 1.5;"><span style="flex: 0 0 auto; color: rgb(141, 123, 121);">소요 시간</span><span style="min-width: 0px; text-align: right; color: rgb(141, 131, 128);">약 1시간~1시간 30분</span></span>
+          </div>
+        </div>
+        <div data-reveal="" data-delay="100" style="display: flex; flex-direction: column; background: rgb(253, 246, 243);">
+          <div style="padding: 30px 28px 24px; display: flex; flex-direction: column; gap: 10px; border-bottom: 1px solid rgb(241, 221, 214);"><span style="display: flex; justify-content: space-between; align-items: baseline;"><span style="font-family: &quot;Cormorant Garamond&quot;, serif; font-size: 26px; color: rgb(208, 133, 122);">02</span><span style="font-size: 13px; letter-spacing: 0.24em; font-weight: 600;">BROW</span></span><span style="font-size: 22px; font-weight: 600; letter-spacing: -0.03em;">퍼스널 눈썹 디자인</span><span style="font-size: 15.5px; line-height: 1.7; color: rgb(59, 48, 46);">얼굴형과 기존 눈썹에 맞춘 디자인</span></div>
+          
+          <div style="padding: 20px 28px 28px; display: flex; flex-direction: column; gap: 12px; font-size: 15.5px;">
+            <span style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding-bottom: 14px; margin-bottom: 2px; border-bottom: 1px solid rgb(241, 226, 221);"><span style="flex: 0 0 auto; font-size: 13px; letter-spacing: 0.24em; color: rgb(141, 123, 121);">PRICE</span><span style="font-size: 20px; font-weight: 600; color: rgb(37, 34, 32);">별도문의</span></span>
+            <span style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; line-height: 1.5;"><span style="flex: 0 0 auto; color: rgb(141, 123, 121);">소요 시간</span><span style="min-width: 0px; text-align: right; color: rgb(141, 131, 128);">약 1시간~1시간 30분</span></span>
+          </div>
+        </div>
+        <div data-reveal="" data-delay="200" style="display: flex; flex-direction: column; background: rgb(253, 246, 243);">
+          <div style="padding: 30px 28px 24px; display: flex; flex-direction: column; gap: 10px; border-bottom: 1px solid rgb(241, 221, 214);"><span style="display: flex; justify-content: space-between; align-items: baseline;"><span style="font-family: &quot;Cormorant Garamond&quot;, serif; font-size: 26px; color: rgb(208, 133, 122);">03</span><span style="font-size: 13px; letter-spacing: 0.24em; font-weight: 600;">HAIRLINE</span></span><span style="font-size: 22px; font-weight: 600; letter-spacing: -0.03em;">헤어라인</span><span style="font-size: 15.5px; line-height: 1.7; color: rgb(59, 48, 46);">현재 모발선에 이어지는 라인 디자인</span></div>
+          
+          <div style="padding: 20px 28px 28px; display: flex; flex-direction: column; gap: 12px; font-size: 15.5px;">
+            <span style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding-bottom: 14px; margin-bottom: 2px; border-bottom: 1px solid rgb(241, 226, 221);"><span style="flex: 0 0 auto; font-size: 13px; letter-spacing: 0.24em; color: rgb(141, 123, 121);">PRICE</span><span style="font-size: 20px; font-weight: 600; color: rgb(37, 34, 32);">별도문의</span></span>
+            <span style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; line-height: 1.5;"><span style="flex: 0 0 auto; color: rgb(141, 123, 121);">소요 시간</span><span style="min-width: 0px; text-align: right; color: rgb(141, 131, 128);">약 1시간~1시간 30분</span></span>
+          </div>
+        </div>
+        <div data-reveal="" data-delay="300" style="display: flex; flex-direction: column; background: rgb(253, 246, 243);">
+          <div style="padding: 30px 28px 24px; display: flex; flex-direction: column; gap: 10px; border-bottom: 1px solid rgb(241, 221, 214);"><span style="display: flex; justify-content: space-between; align-items: baseline;"><span style="font-family: &quot;Cormorant Garamond&quot;, serif; font-size: 26px; color: rgb(208, 133, 122);">04</span><span style="font-size: 13px; letter-spacing: 0.24em; font-weight: 600;">EYELINE</span></span><span style="font-size: 22px; font-weight: 600; letter-spacing: -0.03em;">아이라인</span><span style="font-size: 15.5px; line-height: 1.7; color: rgb(59, 48, 46);">눈매와 원하는 분위기에 맞춘 디자인</span></div>
+          
+          <div style="padding: 20px 28px 28px; display: flex; flex-direction: column; gap: 12px; font-size: 15.5px;">
+            <span style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding-bottom: 14px; margin-bottom: 2px; border-bottom: 1px solid rgb(241, 226, 221);"><span style="flex: 0 0 auto; font-size: 13px; letter-spacing: 0.24em; color: rgb(141, 123, 121);">PRICE</span><span style="font-size: 20px; font-weight: 600; color: rgb(37, 34, 32);">별도문의</span></span>
+            <span style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; line-height: 1.5;"><span style="flex: 0 0 auto; color: rgb(141, 123, 121);">소요 시간</span><span style="min-width: 0px; text-align: right; color: rgb(141, 131, 128);">약 30분</span></span>
+          </div>
+        </div>
+      </div>
+      <div data-reveal="" style="margin-top: 20px; display: flex; flex-wrap: wrap; align-items: center; gap: 20px 32px; padding: clamp(24px, 3vw, 36px) clamp(24px, 3vw, 44px); background: rgb(37, 34, 32); color: rgb(255, 255, 255);">
+        <span style="display: flex; align-items: baseline; gap: 10px; white-space: nowrap;"><span style="font-size: 13px; letter-spacing: 0.3em; color: rgb(241, 195, 182); font-weight: 600;">SET</span><span style="font-family: &quot;Cormorant Garamond&quot;, serif; font-size: clamp(44px, 4.6vw, 64px); line-height: 1; color: rgb(255, 255, 255);">20<span style="font-size: 0.55em;">%</span></span><span style="font-size: 16px; font-weight: 600; color: rgb(241, 195, 182);">OFF</span></span>
+        <span style="flex: 1 1 300px; display: flex; flex-direction: column; gap: 6px;"><span style="font-size: clamp(18px, 1.7vw, 22px); font-weight: 600; letter-spacing: -0.02em;">SET 시술 시 20% 할인</span><span style="font-size: 15.5px; line-height: 1.7; color: rgba(255, 255, 255, 0.78);">두 가지 이상의 프로그램을 함께 진행하시면 할인된 가격으로 안내드립니다. 자세한 가격은 별도 문의 부탁드립니다.</span></span>
+        <a href="http://pf.kakao.com/_xlPgfn/chat" target="_blank" class="scp1" style="height: 52px; padding: 0px 26px; border-radius: 999px; background: rgb(254, 229, 0); color: rgb(25, 25, 25); display: flex; align-items: center; font-size: 15px; font-weight: 600; white-space: nowrap;">가격 문의하기</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="time" data-screen-label="03 Time Guide" style="padding: clamp(88px, 10vw, 140px) clamp(24px, 5vw, 64px); background: rgb(252, 250, 248); scroll-margin-top: 70px;">
+    <div style="max-width: 1320px; margin: 0px auto;">
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 24px 48px; margin-bottom: clamp(40px, 5vw, 64px);">
+        <div style="display: flex; flex-direction: column; gap: 20px;">
+          <div data-reveal="" style="display: flex; align-items: center; gap: 14px; font-size: 13px; letter-spacing: 0.34em; color: rgb(208, 133, 122); font-weight: 500; white-space: nowrap;"><span style="font-family: &quot;Cormorant Garamond&quot;, serif; font-size: 22px; letter-spacing: 0px;">03</span><span data-line="" style="display: block; width: 32px; height: 1px; background: rgb(232, 185, 174);"></span>TIME GUIDE</div>
+          <h2 style="margin: 0px; width: 100%; font-size: clamp(28px, 3.2vw, 44px); font-weight: 600; line-height: 1.4; letter-spacing: -0.04em; color: rgb(37, 34, 32);"><span data-mask="" style="display: block;">시술 소요 시간</span><span data-mask="" data-delay="140" style="display: block;">안내</span></h2>
+        </div>
+        <p data-reveal="" style="margin: 0px; max-width: 460px; font-size: 17px; line-height: 1.85; color: rgb(59, 48, 46);">업뷰티는 고객님의 현재 상태와 원하는 이미지를 충분히 확인한 뒤 진행합니다. 아래 시간은 실제 시술 기준이며, 상담·디자인·마취에 필요한 시간은 별도입니다.</p>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 16px;">
+        <div data-reveal="" data-delay="0" style="display: flex; flex-direction: column; background: rgb(255, 255, 255); border: 1px solid rgb(241, 226, 221);">
+          <div style="display: flex; justify-content: space-between; align-items: baseline; padding: 26px 28px 0px;"><span style="font-family: &quot;Cormorant Garamond&quot;, serif; font-size: 24px; color: rgb(208, 133, 122);">01</span><span style="font-size: 13px; color: rgb(141, 123, 121);">퍼스널 눈썹 디자인</span></div>
+          <div style="padding: 14px 28px 22px; display: flex; flex-direction: column; gap: 6px;"><span style="font-size: 22px; font-weight: 600;">눈썹</span><span style="font-size: clamp(24px, 2.2vw, 30px); font-weight: 600; letter-spacing: -0.03em; color: rgb(208, 133, 122);">약 1시간~1시간 30분</span></div>
+          <div style="margin: 0px 28px; height: 6px; border-radius: 999px; background: rgb(246, 230, 225); overflow: hidden;"><span style="display: block; height: 100%; width: 100%; border-radius: 999px; background: linear-gradient(90deg, rgb(241, 195, 182), rgb(208, 133, 122));"></span></div>
+          <div style="padding: 20px 28px 28px; display: flex; flex-direction: column; gap: 10px; font-size: 15.5px; line-height: 1.7; color: rgb(59, 48, 46);"><span>눈썹모와 피부 상태, 디자인 및 표현 범위에 따라 달라질 수 있습니다.</span><span style="margin-top: auto; font-size: 14px; color: rgb(141, 123, 121);">※ 상담·디자인·마취 시간 미포함</span></div>
+        </div>
+        <div data-reveal="" data-delay="100" style="display: flex; flex-direction: column; background: rgb(255, 255, 255); border: 1px solid rgb(232, 185, 174);">
+          <div style="display: flex; justify-content: space-between; align-items: baseline; padding: 26px 28px 0px;"><span style="font-family: &quot;Cormorant Garamond&quot;, serif; font-size: 24px; color: rgb(208, 133, 122);">02</span><span style="font-size: 13px; color: rgb(141, 123, 121);">무통 퍼스널 입술 · 하트 오버립</span></div>
+          <div style="padding: 14px 28px 22px; display: flex; flex-direction: column; gap: 6px;"><span style="font-size: 22px; font-weight: 600;">입술</span><span style="font-size: clamp(24px, 2.2vw, 30px); font-weight: 600; letter-spacing: -0.03em; color: rgb(208, 133, 122);">약 1시간~1시간 30분</span></div>
+          <div style="margin: 0px 28px; height: 6px; border-radius: 999px; background: rgb(246, 230, 225); overflow: hidden;"><span style="display: block; height: 100%; width: 100%; border-radius: 999px; background: linear-gradient(90deg, rgb(241, 195, 182), rgb(208, 133, 122));"></span></div>
+          <div style="padding: 20px 28px 28px; display: flex; flex-direction: column; gap: 10px; font-size: 15.5px; line-height: 1.7; color: rgb(59, 48, 46);"><span>입술은 꼼꼼한 상담과 퍼스널 컬러 조색 테스트, 맞춤 디자인 및 마취 과정으로 약 1시간이 추가 소요될 수 있습니다.</span><span>총 방문 시간은 약 2시간~2시간 30분으로, 여유 있게 일정을 잡아주세요.</span><span style="margin-top: auto; font-size: 14px; color: rgb(141, 123, 121);">※ 상담·디자인·마취 시간 미포함</span></div>
+        </div>
+        <div data-reveal="" data-delay="200" style="display: flex; flex-direction: column; background: rgb(255, 255, 255); border: 1px solid rgb(241, 226, 221);">
+          <div style="display: flex; justify-content: space-between; align-items: baseline; padding: 26px 28px 0px;"><span style="font-family: &quot;Cormorant Garamond&quot;, serif; font-size: 24px; color: rgb(208, 133, 122);">03</span><span style="font-size: 13px; color: rgb(141, 123, 121);">퍼스널 헤어라인</span></div>
+          <div style="padding: 14px 28px 22px; display: flex; flex-direction: column; gap: 6px;"><span style="font-size: 22px; font-weight: 600;">헤어라인</span><span style="font-size: clamp(24px, 2.2vw, 30px); font-weight: 600; letter-spacing: -0.03em; color: rgb(208, 133, 122);">약 1시간~1시간 30분</span></div>
+          <div style="margin: 0px 28px; height: 6px; border-radius: 999px; background: rgb(246, 230, 225); overflow: hidden;"><span style="display: block; height: 100%; width: 100%; border-radius: 999px; background: linear-gradient(90deg, rgb(241, 195, 182), rgb(208, 133, 122));"></span></div>
+          <div style="padding: 20px 28px 28px; display: flex; flex-direction: column; gap: 10px; font-size: 15.5px; line-height: 1.7; color: rgb(59, 48, 46);"><span>음영을 더할 면적과 기존 모발선, 디자인 범위에 따라 달라질 수 있습니다.</span><span style="margin-top: auto; font-size: 14px; color: rgb(141, 123, 121);">※ 상담·디자인·마취 시간 미포함</span></div>
+        </div>
+        <div data-reveal="" data-delay="300" style="display: flex; flex-direction: column; background: rgb(255, 255, 255); border: 1px solid rgb(241, 226, 221);">
+          <div style="display: flex; justify-content: space-between; align-items: baseline; padding: 26px 28px 0px;"><span style="font-family: &quot;Cormorant Garamond&quot;, serif; font-size: 24px; color: rgb(208, 133, 122);">04</span><span style="font-size: 13px; color: rgb(141, 123, 121);">퍼스널 아이라인</span></div>
+          <div style="padding: 14px 28px 22px; display: flex; flex-direction: column; gap: 6px;"><span style="font-size: 22px; font-weight: 600;">아이라인</span><span style="font-size: clamp(24px, 2.2vw, 30px); font-weight: 600; letter-spacing: -0.03em; color: rgb(208, 133, 122);">약 30분</span></div>
+          <div style="margin: 0px 28px; height: 6px; border-radius: 999px; background: rgb(246, 230, 225); overflow: hidden;"><span style="display: block; height: 100%; width: 33%; border-radius: 999px; background: linear-gradient(90deg, rgb(241, 195, 182), rgb(208, 133, 122));"></span></div>
+          <div style="padding: 20px 28px 28px; display: flex; flex-direction: column; gap: 10px; font-size: 15.5px; line-height: 1.7; color: rgb(59, 48, 46);"><span>눈매와 기존 잔흔, 라인의 두께 및 표현 범위에 따라 달라질 수 있습니다.</span><span style="margin-top: auto; font-size: 14px; color: rgb(141, 123, 121);">※ 상담·디자인·마취 시간 미포함</span></div>
+        </div>
+      </div>
+      <p data-reveal="" style="margin: 28px 0px 0px; padding: 22px 26px; background: rgb(255, 255, 255); border-left: 0px; font-size: 16px; line-height: 1.8; color: rgb(59, 48, 46); text-align: center;">모든 소요 시간은 예상 기준입니다. 개인 상태와 상담·디자인 조율에 따라 늘어날 수 있으므로, 방문 후 일정은 여유 있게 잡아주세요.</p>
+    </div>
+  </section>
+
+  <section id="check" data-screen-label="04 Before Visit" style="padding: clamp(88px, 10vw, 140px) clamp(24px, 5vw, 64px); background: rgb(253, 246, 243); scroll-margin-top: 70px;">
+    <div style="max-width: 1320px; margin: 0px auto; display: flex; flex-wrap: wrap; gap: clamp(40px, 5vw, 80px); align-items: center;">
+      <div style="flex: 1 1 400px; min-width: 0px; display: flex; flex-direction: column;">
+        <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 24px 48px; margin-bottom: clamp(40px, 5vw, 64px);">
+        <div style="display: flex; flex-direction: column; gap: 20px;">
+          <div data-reveal="" style="display: flex; align-items: center; gap: 14px; font-size: 13px; letter-spacing: 0.34em; color: rgb(208, 133, 122); font-weight: 500; white-space: nowrap;"><span style="font-family: &quot;Cormorant Garamond&quot;, serif; font-size: 22px; letter-spacing: 0px;">04</span><span data-line="" style="display: block; width: 32px; height: 1px; background: rgb(232, 185, 174);"></span>BEFORE VISIT</div>
+          <h2 style="margin: 0px; width: 100%; font-size: clamp(28px, 3.2vw, 44px); font-weight: 600; line-height: 1.4; letter-spacing: -0.04em; color: rgb(37, 34, 32);"><span data-mask="" style="display: block;">방문 전,</span><span data-mask="" data-delay="140" style="display: block;">카카오톡으로 미리 알려주세요.</span></h2>
+        </div>
+        
+      </div>
+        <p data-reveal="" style="margin: -16px 0px 28px; font-size: 17px; line-height: 1.85; color: rgb(59, 48, 46);">오른쪽 내용을 카카오톡 채널로 보내주시면 상담 시간을 더 여유 있게 쓸 수 있습니다. 모두 준비하지 않으셔도 괜찮습니다.</p>
+        <a href="http://pf.kakao.com/_xlPgfn/chat" target="_blank" data-magnetic="" class="scp2" style="align-self: flex-start; height: 58px; padding: 0px 30px; border-radius: 999px; background: rgb(254, 229, 0); color: rgb(25, 25, 25); display: flex; align-items: center; gap: 12px; font-size: 16px; font-weight: 600; white-space: nowrap;"><span style="width: 26px; height: 20px; border-radius: 50%; background: rgb(25, 25, 25); position: relative; display: block;"><span style="position: absolute; left: 5px; bottom: -4px; width: 0px; height: 0px; border-left: 4px solid transparent; border-right: 4px solid transparent; border-top: 6px solid rgb(25, 25, 25);"></span></span>카카오톡으로 보내기</a>
+      </div>
+      <div data-reveal="" style="flex: 1 1 420px; max-width: 520px; width: 100%; background: rgb(178, 199, 217); border-radius: 28px; overflow: hidden; box-shadow: rgba(59, 48, 46, 0.12) 0px 24px 60px;">
+        <div style="display: flex; align-items: center; gap: 12px; padding: 18px 22px; background: rgba(255, 255, 255, 0.35);"><span style="width: 40px; height: 40px; border-radius: 14px; background: rgb(255, 255, 255); display: flex; align-items: center; justify-content: center; font-family: &quot;Cormorant Garamond&quot;, serif; font-size: 16px; color: rgb(208, 133, 122);">UP</span><span style="display: flex; flex-direction: column;"><span style="font-size: 16px; font-weight: 600; color: rgb(25, 25, 25);">UP BEAUTY 업뷰티</span><span style="font-size: 12.5px; color: rgb(59, 74, 87);">카카오톡 채널</span></span></div>
+        <div style="display: flex; flex-direction: column; gap: 12px; padding: 24px 20px 28px;">
+          <div style="align-self: flex-start; max-width: 82%; padding: 14px 16px; border-radius: 4px 16px 16px; background: rgb(255, 255, 255); font-size: 15.5px; line-height: 1.6; color: rgb(25, 25, 25);">안녕하세요, 업뷰티입니다. 상담 전에 아래 내용을 알려주시면 도움이 됩니다.</div>
+          <div style="align-self: flex-start; max-width: 82%; display: flex; gap: 10px; align-items: center; padding: 12px 16px; border-radius: 16px; background: rgb(255, 255, 255); font-size: 15.5px; color: rgb(25, 25, 25);"><span style="flex: 0 0 auto; width: 24px; height: 24px; border-radius: 50%; background: rgb(208, 133, 122); color: rgb(255, 255, 255); display: flex; align-items: center; justify-content: center; font-size: 12.5px; font-weight: 600;">1</span>원하는 분위기의 참고 사진</div><div style="align-self: flex-start; max-width: 82%; display: flex; gap: 10px; align-items: center; padding: 12px 16px; border-radius: 16px; background: rgb(255, 255, 255); font-size: 15.5px; color: rgb(25, 25, 25);"><span style="flex: 0 0 auto; width: 24px; height: 24px; border-radius: 50%; background: rgb(208, 133, 122); color: rgb(255, 255, 255); display: flex; align-items: center; justify-content: center; font-size: 12.5px; font-weight: 600;">2</span>이전 반영구 시술 시기와 부위</div><div style="align-self: flex-start; max-width: 82%; display: flex; gap: 10px; align-items: center; padding: 12px 16px; border-radius: 16px; background: rgb(255, 255, 255); font-size: 15.5px; color: rgb(25, 25, 25);"><span style="flex: 0 0 auto; width: 24px; height: 24px; border-radius: 50%; background: rgb(208, 133, 122); color: rgb(255, 255, 255); display: flex; align-items: center; justify-content: center; font-size: 12.5px; font-weight: 600;">3</span>평소 메이크업 스타일</div><div style="align-self: flex-start; max-width: 82%; display: flex; gap: 10px; align-items: center; padding: 12px 16px; border-radius: 16px; background: rgb(255, 255, 255); font-size: 15.5px; color: rgb(25, 25, 25);"><span style="flex: 0 0 auto; width: 24px; height: 24px; border-radius: 50%; background: rgb(208, 133, 122); color: rgb(255, 255, 255); display: flex; align-items: center; justify-content: center; font-size: 12.5px; font-weight: 600;">4</span>가장 고민인 부분 한 가지</div>
+          <div style="align-self: flex-end; max-width: 78%; padding: 14px 16px; border-radius: 16px 4px 16px 16px; background: rgb(254, 229, 0); font-size: 15.5px; line-height: 1.6; color: rgb(25, 25, 25);">입술 상담 받고 싶어요! 참고 사진 보내드릴게요 :)</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="05 Process" style="padding: clamp(88px, 10vw, 140px) clamp(24px, 5vw, 64px); background: rgb(255, 255, 255);">
+    <div style="max-width: 1320px; margin: 0px auto;">
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 24px 48px; margin-bottom: clamp(40px, 5vw, 64px);">
+        <div style="display: flex; flex-direction: column; gap: 20px;">
+          <div data-reveal="" style="display: flex; align-items: center; gap: 14px; font-size: 13px; letter-spacing: 0.34em; color: rgb(208, 133, 122); font-weight: 500; white-space: nowrap;"><span style="font-family: &quot;Cormorant Garamond&quot;, serif; font-size: 22px; letter-spacing: 0px;">05</span><span data-line="" style="display: block; width: 32px; height: 1px; background: rgb(232, 185, 174);"></span>PROCESS</div>
+          <h2 style="margin: 0px; width: 100%; font-size: clamp(28px, 3.2vw, 44px); font-weight: 600; line-height: 1.4; letter-spacing: -0.04em; color: rgb(37, 34, 32);"><span data-mask="" style="display: block;">처음 상담부터</span><span data-mask="" data-delay="140" style="display: block;">마무리 안내까지.</span></h2>
+        </div>
+        
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(5, minmax(150px, 1fr)); gap: 6px; overflow-x: auto;">
+        <div data-reveal="" data-delay="0" style="display: flex; flex-direction: column; gap: 12px; padding: 28px 30px 30px 24px; background: rgb(255, 248, 245); clip-path: polygon(0px 0px, calc(100% - 22px) 0px, 100% 50%, calc(100% - 22px) 100%, 0px 100%); min-height: 220px; box-sizing: border-box; color: rgb(37, 34, 32);"><span style="font-family: &quot;Cormorant Garamond&quot;, serif; font-size: 44px; font-weight: 300; line-height: 1; color: rgb(208, 133, 122);">01</span><span style="font-size: clamp(18px, 1.8vw, 24px); font-weight: 600;">상담</span><span style="font-size: 12px; letter-spacing: 0.24em; opacity: 0.8;">CONSULT</span><span style="font-size: clamp(14px, 1.2vw, 16.5px); line-height: 1.6;">고민과 원하는 분위기를 이야기합니다.</span></div><div data-reveal="" data-delay="100" style="display: flex; flex-direction: column; gap: 12px; padding: 28px 30px 30px 38px; background: rgb(252, 238, 233); clip-path: polygon(0px 0px, calc(100% - 22px) 0px, 100% 50%, calc(100% - 22px) 100%, 0px 100%, 22px 50%); min-height: 220px; box-sizing: border-box; color: rgb(37, 34, 32);"><span style="font-family: &quot;Cormorant Garamond&quot;, serif; font-size: 44px; font-weight: 300; line-height: 1; color: rgb(208, 133, 122);">02</span><span style="font-size: clamp(18px, 1.8vw, 24px); font-weight: 600;">확인</span><span style="font-size: 12px; letter-spacing: 0.24em; opacity: 0.8;">CHECK</span><span style="font-size: clamp(14px, 1.2vw, 16.5px); line-height: 1.6;">현재 상태와 얼굴 이미지를 확인합니다.</span></div><div data-reveal="" data-delay="200" style="display: flex; flex-direction: column; gap: 12px; padding: 28px 30px 30px 38px; background: rgb(249, 227, 220); clip-path: polygon(0px 0px, calc(100% - 22px) 0px, 100% 50%, calc(100% - 22px) 100%, 0px 100%, 22px 50%); min-height: 220px; box-sizing: border-box; color: rgb(37, 34, 32);"><span style="font-family: &quot;Cormorant Garamond&quot;, serif; font-size: 44px; font-weight: 300; line-height: 1; color: rgb(208, 133, 122);">03</span><span style="font-size: clamp(18px, 1.8vw, 24px); font-weight: 600;">디자인</span><span style="font-size: 12px; letter-spacing: 0.24em; opacity: 0.8;">DESIGN</span><span style="font-size: clamp(14px, 1.2vw, 16.5px); line-height: 1.6;">개인에게 맞는 방향을 함께 조율합니다.</span></div><div data-reveal="" data-delay="300" style="display: flex; flex-direction: column; gap: 12px; padding: 28px 30px 30px 38px; background: rgb(245, 214, 205); clip-path: polygon(0px 0px, calc(100% - 22px) 0px, 100% 50%, calc(100% - 22px) 100%, 0px 100%, 22px 50%); min-height: 220px; box-sizing: border-box; color: rgb(37, 34, 32);"><span style="font-family: &quot;Cormorant Garamond&quot;, serif; font-size: 44px; font-weight: 300; line-height: 1; color: rgb(208, 133, 122);">04</span><span style="font-size: clamp(18px, 1.8vw, 24px); font-weight: 600;">진행</span><span style="font-size: 12px; letter-spacing: 0.24em; opacity: 0.8;">PROCEDURE</span><span style="font-size: clamp(14px, 1.2vw, 16.5px); line-height: 1.6;">상담 내용을 기준으로 진행합니다.</span></div><div data-reveal="" data-delay="400" style="display: flex; flex-direction: column; gap: 12px; padding: 28px 30px 30px 38px; background: rgb(208, 133, 122); clip-path: polygon(0px 0px, calc(100% - 22px) 0px, 100% 50%, calc(100% - 22px) 100%, 0px 100%, 22px 50%); min-height: 220px; box-sizing: border-box; color: rgb(255, 255, 255);"><span style="font-family: &quot;Cormorant Garamond&quot;, serif; font-size: 44px; font-weight: 300; line-height: 1; color: rgb(255, 255, 255);">05</span><span style="font-size: clamp(18px, 1.8vw, 24px); font-weight: 600;">안내</span><span style="font-size: 12px; letter-spacing: 0.24em; opacity: 0.8;">GUIDE</span><span style="font-size: clamp(14px, 1.2vw, 16.5px); line-height: 1.6;">진행 후 필요한 관리 내용을 안내합니다.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="care" data-screen-label="06 After Guide" style="padding: clamp(88px, 10vw, 140px) clamp(24px, 5vw, 64px); background: rgb(255, 255, 255); scroll-margin-top: 70px;">
+    <div style="max-width: 1320px; margin: 0px auto;">
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 24px 48px; margin-bottom: clamp(40px, 5vw, 64px);">
+        <div style="display: flex; flex-direction: column; gap: 20px;">
+          <div data-reveal="" style="display: flex; align-items: center; gap: 14px; font-size: 13px; letter-spacing: 0.34em; color: rgb(208, 133, 122); font-weight: 500; white-space: nowrap;"><span style="font-family: &quot;Cormorant Garamond&quot;, serif; font-size: 22px; letter-spacing: 0px;">06</span><span data-line="" style="display: block; width: 32px; height: 1px; background: rgb(232, 185, 174);"></span>AFTER GUIDE</div>
+          <h2 style="margin: 0px; width: 100%; font-size: clamp(28px, 3.2vw, 44px); font-weight: 600; line-height: 1.4; letter-spacing: -0.04em; color: rgb(37, 34, 32);"><span data-mask="" style="display: block;">시술 후 관리는</span><span data-mask="" data-delay="140" style="display: block;">이렇게 확인하세요.</span></h2>
+        </div>
+        <p data-reveal="" style="margin: 0px; max-width: 460px; font-size: 17px; line-height: 1.85; color: rgb(59, 48, 46);">시술 직후부터 자리 잡는 과정은 인스타그램에 정리되어 있으니 참고 바랍니다. 개인별 관리 방법은 카카오톡 채널로 문의 주시면 자세히 알려드립니다.</p>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 16px;">
+        <a href="https://instagram.com/upbeauty_love" target="_blank" data-reveal="" class="scp3" style="display: flex; flex-direction: column; gap: 16px; padding: 36px 32px; min-height: 280px; box-sizing: border-box; background: rgb(253, 246, 243); color: rgb(37, 34, 32);">
+          <span style="width: 60px; height: 60px; border-radius: 18px; background: linear-gradient(45deg, rgb(249, 206, 52) 0%, rgb(238, 42, 123) 50%, rgb(98, 40, 215) 100%); display: flex; align-items: center; justify-content: center;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="5"></rect><circle cx="12" cy="12" r="3.6"></circle><circle cx="16.8" cy="7.2" r="0.8" fill="#FFFFFF" stroke="none"></circle></svg></span>
+          <span style="font-size: 13px; letter-spacing: 0.26em; font-weight: 600; color: rgb(208, 133, 122);">INSTAGRAM</span>
+          <span style="font-size: 22px; font-weight: 600; letter-spacing: -0.03em;">시술 직후부터 자리 잡는 과정</span>
+          <span style="font-size: 16px; line-height: 1.75; color: rgb(59, 48, 46);">인스타그램에 시기별 변화가 정리되어 있으니 참고 바랍니다.</span>
+          <span style="margin-top: auto; display: flex; justify-content: space-between; padding-top: 16px; border-top: 1px solid rgb(239, 220, 214); font-size: 16px; font-weight: 500;">@upbeauty_love<span>→</span></span>
+        </a>
+        <a href="http://pf.kakao.com/_xlPgfn/chat" target="_blank" data-reveal="" data-delay="100" class="scp2" style="display: flex; flex-direction: column; gap: 16px; padding: 36px 32px; min-height: 280px; box-sizing: border-box; background: rgb(254, 229, 0); color: rgb(25, 25, 25);">
+          <span style="width: 60px; height: 60px; border-radius: 50%; background: rgb(25, 25, 25); display: flex; align-items: center; justify-content: center;"><svg width="30" height="30" viewBox="0 0 24 24" fill="#FEE500"><path d="M12 4c-4.6 0-8.3 2.9-8.3 6.5 0 2.3 1.5 4.3 3.8 5.5l-.8 3.3c-.1.3.3.5.5.3l3.9-2.6c.3 0 .6.1.9.1 4.6 0 8.3-2.9 8.3-6.6S16.6 4 12 4z"></path></svg></span>
+          <span style="font-size: 13px; letter-spacing: 0.26em; font-weight: 600;">KAKAO CHANNEL</span>
+          <span style="font-size: 22px; font-weight: 600; letter-spacing: -0.03em;">카카오톡 채널 문의</span>
+          <span style="font-size: 16px; line-height: 1.75;">문의 주시면 개인 상태에 맞춰 자세히 알려드립니다.</span>
+          <span style="margin-top: auto; display: flex; justify-content: space-between; padding-top: 16px; border-top: 1px solid rgba(25, 25, 25, 0.15); font-size: 16px; font-weight: 600;">채널 연결하기<span>→</span></span>
+        </a>
+        <a href="tel:010-4953-2393" data-reveal="" data-delay="200" class="scp4" style="display: flex; flex-direction: column; gap: 16px; padding: 36px 32px; min-height: 280px; box-sizing: border-box; background: rgb(37, 34, 32); color: rgb(255, 255, 255);">
+          <span style="width: 60px; height: 60px; border-radius: 50%; background: rgb(208, 133, 122); display: flex; align-items: center; justify-content: center;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"></path></svg></span>
+          <span style="font-size: 13px; letter-spacing: 0.26em; font-weight: 600; color: rgb(241, 195, 182);">CALL</span>
+          <span style="font-size: 22px; font-weight: 600; letter-spacing: -0.03em;">샵 전화 문의</span>
+          <span style="font-size: 16px; line-height: 1.75; color: rgba(255, 255, 255, 0.8);">리터치 및 관리 관련 사항은 별도 문의 부탁드립니다.</span>
+          <span style="margin-top: auto; display: flex; justify-content: space-between; padding-top: 16px; border-top: 1px solid rgba(255, 255, 255, 0.2); font-size: 20px; font-family: &quot;Cormorant Garamond&quot;, serif; letter-spacing: 0.04em;">010-4953-2393<span style="font-family: Pretendard, sans-serif; font-size: 16px;">→</span></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+    <section data-screen-label="07 CTA" style="position: relative; padding: clamp(100px, 12vw, 170px) clamp(24px, 5vw, 64px); background: linear-gradient(rgb(255, 255, 255) 0%, rgb(252, 229, 222) 100%); text-align: center;">
+    <div style="max-width: 900px; margin: 0px auto; display: flex; flex-direction: column; align-items: center; gap: 32px;">
+      <span data-reveal="" style="font-size: 13px; letter-spacing: 0.34em; color: rgb(208, 133, 122); font-weight: 500;">CONTACT</span>
+      <h2 style="margin: 0px; width: 100%; font-size: clamp(28px, 3.2vw, 44px); font-weight: 600; line-height: 1.45; letter-spacing: -0.04em; text-wrap: balance;"><span data-mask="" style="display: block;">어떤 디자인이 어울릴지 모르겠다면,</span><span data-mask="" data-delay="140" style="display: block;">지금 고민부터 이야기해주세요.</span></h2>
+      <div data-reveal="" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 12px;">
+        <a href="http://pf.kakao.com/_xlPgfn/chat" target="_blank" data-magnetic="" class="scp5" style="height: 58px; min-width: 210px; padding: 0px 30px; border-radius: 999px; background: rgb(37, 34, 32); color: rgb(255, 255, 255); display: flex; align-items: center; justify-content: center; font-size: 14px; letter-spacing: 0.26em; font-weight: 500; box-sizing: border-box;">KAKAO TALK</a>
+        <a href="tel:010-4953-2393" data-magnetic="" class="scp6" style="height: 58px; min-width: 210px; padding: 0px 30px; border-radius: 999px; border: 1px solid rgb(37, 34, 32); color: rgb(37, 34, 32); display: flex; align-items: center; justify-content: center; font-size: 14px; letter-spacing: 0.26em; font-weight: 500; box-sizing: border-box;">CALL</a>
+      </div>
+      <a href="tel:010-4953-2393" data-reveal="" style="font-family: &quot;Cormorant Garamond&quot;, serif; font-size: clamp(28px, 2.8vw, 36px); letter-spacing: 0.06em; color: rgb(59, 48, 46);">010-4953-2393</a>
+    </div>
+  </section></main><div class="sc-host" data-sc-name="SiteFooter"><footer style="background: rgb(37, 34, 32); color: rgb(229, 220, 216); font-family: Pretendard, &quot;Apple SD Gothic Neo&quot;, sans-serif; padding: clamp(64px, 8vw, 110px) clamp(24px, 6vw, 96px) 120px;">
+  <div style="max-width: 1320px; margin: 0px auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 48px;">
+    <div style="display: flex; flex-direction: column; gap: 22px; flex: 1 1 280px;">
+      <img src="/assets/logo-white.png" alt="UP BEAUTY 업뷰티" style="width: 180px; height: auto; display: block;">
+      <p style="margin: 0px; font-size: 13px; letter-spacing: 0.34em; color: rgb(217, 160, 154);">PERSONAL BEAUTY DESIGN STUDIO</p>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 12px; flex: 0 1 200px;">
+      <span style="font-size: 12.5px; letter-spacing: 0.3em; color: rgb(141, 131, 128);">MENU</span>
+      <a href="About.dc.html" class="scpc" style="color: rgb(229, 220, 216); font-size: 14.5px; letter-spacing: 0.16em;">ABOUT</a>
+      <a href="Program.dc.html" class="scpc" style="color: rgb(229, 220, 216); font-size: 14.5px; letter-spacing: 0.16em;">시술항목</a>
+      <a href="Cases.dc.html" class="scpc" style="color: rgb(229, 220, 216); font-size: 14.5px; letter-spacing: 0.16em;">시술전/후&amp;고객후기</a>
+      <a href="Price-Guide.dc.html" class="scpc" style="color: rgb(229, 220, 216); font-size: 14.5px; letter-spacing: 0.16em;">PRICE &amp; GUIDE</a>
+      <a href="Contact.dc.html" class="scpc" style="color: rgb(229, 220, 216); font-size: 14.5px; letter-spacing: 0.16em;">상담안내&amp;오시는길</a>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 12px; flex: 0 1 300px;">
+      <span style="font-size: 12.5px; letter-spacing: 0.3em; color: rgb(141, 131, 128);">CONTACT</span>
+      <a href="tel:010-4953-2393" class="scpc" style="color: rgb(255, 255, 255); font-family: &quot;Cormorant Garamond&quot;, serif; font-size: 26px; font-weight: 400;">010-4953-2393</a>
+      <a href="http://pf.kakao.com/_xlPgfn/chat" target="_blank" class="scpc" style="color: rgb(229, 220, 216); font-size: 14.5px; letter-spacing: 0.08em;">KAKAO TALK 상담</a>
+      <a href="https://instagram.com/upbeauty_love" target="_blank" class="scpc" style="color: rgb(229, 220, 216); font-size: 14.5px; letter-spacing: 0.08em;">Instagram @upbeauty_love</a>
+      <span style="display: flex; flex-direction: column; gap: 4px; margin-top: 8px; padding-top: 14px; border-top: 1px solid rgb(59, 48, 46); color: rgb(229, 220, 216); font-size: 14.5px; line-height: 1.6;"><span style="font-size: 11.5px; letter-spacing: 0.28em; color: rgb(141, 131, 128);">ADDRESS</span>대구시 남구 대명로65 라운빌딩 7층<span style="color: rgb(141, 131, 128); font-size: 13.5px;">세종정형외과 건물 · 대명역 1번 출구 바로 앞</span></span>
+      <span style="display: flex; flex-direction: column; gap: 4px; color: rgb(229, 220, 216); font-size: 14.5px; line-height: 1.6;"><span style="font-size: 11.5px; letter-spacing: 0.28em; color: rgb(141, 131, 128);">HOURS</span>AM 10:00 ~ PM 8:00 · 연중무휴<span style="color: rgb(141, 131, 128); font-size: 13.5px;">시간·휴무일 변동 가능, 문의 바랍니다</span></span>
+    </div>
+  </div>
+  <div style="max-width: 1320px; margin: 56px auto 0px; padding-top: 24px; border-top: 1px solid rgb(59, 48, 46); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; font-size: 13px; letter-spacing: 0.12em; color: rgb(141, 131, 128);">
+    <span>© UP BEAUTY. ALL RIGHTS RESERVED.</span>
+  </div></footer></div></div></div></div>
+
+
+
+
+</body></html>
